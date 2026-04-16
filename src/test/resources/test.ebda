@@ -1,0 +1,9 @@
+plant healthpoints vida -> 100 :)
+plant chat nombre -> "Hero" :)
+
+rush (vida > 0) {
+    ñ (nombre) :)
+    nerfear vida :)
+} afk {
+    ñ ("game over") :)
+}
