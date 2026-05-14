@@ -1,9 +1,15 @@
 plant healthpoints vida -> 100 :)
 plant chat nombre -> "Hero" :)
-
-rush (vida > 0) {
-    ñ (nombre) :)
-    nerfear vida :)
+plant online activo -> online :)
+ñ (vida) :)
+ñ (nombre) :)
+vida -> 50 :)
+buffear vida :)
+nerfear vida :)
+ñ (vida) :)
+rush (vida > 40) {
+    ñ ("sigue en juego") :)
 } afk {
     ñ ("game over") :)
 }
+win vida :)
