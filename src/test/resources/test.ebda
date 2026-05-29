@@ -1,15 +1,124 @@
 plant healthpoints vida -> 100 :)
-plant chat nombre -> "Hero" :)
+plant healthpoints nivel -> 1 :)
+plant healthpoints contador -> 0 :)
+plant chat nombre -> "Jugador1" :)
+plant chat mensaje -> "Hola" :)
 plant online activo -> online :)
+plant online vivo -> online :)
+
+
+ñ (nombre) :)
+ñ (vida) :)
+ñ (activo) :)
+
+
+vida -> 90 :)
+nombre -> "HeroX" :)
+activo -> offline :)
 ñ (vida) :)
 ñ (nombre) :)
-vida -> 50 :)
+ñ (activo) :)
+
+
 buffear vida :)
+ñ (vida) :)
+nerfear vida :)
 nerfear vida :)
 ñ (vida) :)
-rush (vida > 40) {
-    ñ ("sigue en juego") :)
-} afk {
-    ñ ("game over") :)
+
+
+plant healthpoints suma -> vida + nivel :)
+plant healthpoints resta -> vida - 10 :)
+plant healthpoints producto -> nivel * 5 :)
+plant healthpoints division -> vida / 3 :)
+ñ (suma) :)
+ñ (resta) :)
+ñ (producto) :)
+ñ (division) :)
+
+
+plant online esMayor -> vida > 50 :)
+plant online esIgual -> nivel = 1 :)
+plant online esMenor -> nivel < 10 :)
+ñ (esMayor) :)
+ñ (esIgual) :)
+ñ (esMenor) :)
+
+
+plant online noActivo -> ! activo :)
+ñ (noActivo) :)
+
+
+plant chat saludo -> "Hola, " + nombre :)
+ñ (saludo) :)
+
+
+rush (esMayor) {
+    ñ ("vida mayor a 50") :)
+    buffear nivel :)
 }
+
+
+rush (activo) {
+    ñ ("jugador activo") :)
+} afk {
+    ñ ("jugador inactivo") :)
+}
+
+
+rush (esMayor) {
+    ñ ("vida > 50, revisando nivel...") :)
+    rush (esIgual) {
+        ñ ("nivel = 1 confirmado") :)
+    } afk {
+        ñ ("nivel distinto de 1") :)
+    }
+}
+
+
+respawn (esMenor) {
+    ñ (contador) :)
+    buffear contador :)
+    buffear nivel :)
+    esMenor -> nivel < 5 :)
+}
+
+
+rush (esMayor) {
+    ñ ("entrando al respawn dentro de rush") :)
+    plant healthpoints i -> 0 :)
+    plant online seguir -> online :)
+    respawn (seguir) {
+        buffear i :)
+        ñ (i) :)
+        seguir -> i < 3 :)
+    }
+}
+
+
+plant healthpoints x -> 0 :)
+plant online corriendo -> online :)
+respawn (corriendo) {
+    buffear x :)
+    rush (esMayor) {
+        ñ ("x subiendo, vida sigue alta") :)
+    }
+    corriendo -> x < 4 :)
+}
+
+
+plant healthpoints fila -> 0 :)
+plant online loopFila -> online :)
+respawn (loopFila) {
+    buffear fila :)
+    plant healthpoints col -> 0 :)
+    plant online loopCol -> online :)
+    respawn (loopCol) {
+        buffear col :)
+        ñ (col) :)
+        loopCol -> col < 3 :)
+    }
+    loopFila -> fila < 3 :)
+}
+
 win vida :)

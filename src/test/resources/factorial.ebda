@@ -1,0 +1,15 @@
+plant healthpoints n -> 5 :)
+plant healthpoints resultado -> 1 :)
+plant healthpoints i -> 1 :)
+plant online corriendo -> online :)
+
+respawn (corriendo) {
+    resultado -> resultado * i :)
+    buffear i :)
+    corriendo -> i < n :)
+}
+
+resultado -> resultado * n :)
+ñ ("Factorial de 5:") :)
+ñ (resultado) :)
+win resultado :)

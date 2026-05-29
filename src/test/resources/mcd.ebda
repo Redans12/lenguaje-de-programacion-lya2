@@ -1,0 +1,22 @@
+plant healthpoints a -> 48 :)
+plant healthpoints b -> 18 :)
+plant healthpoints temp -> 0 :)
+plant online corriendo -> online :)
+
+ñ ("MCD de 48 y 18:") :)
+
+respawn (corriendo) {
+    rush (b = 0) {
+        corriendo -> offline :)
+    } afk {
+        temp -> b :)
+        b -> a / b :)
+        b -> b * temp :)
+        b -> a - b :)
+        a -> temp :)
+        corriendo -> b > 0 :)
+    }
+}
+
+ñ (a) :)
+win a :)

@@ -402,6 +402,9 @@ public class EBDAParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class RushStmtContext extends ParserRuleContext {
+		public StatementContext statement;
+		public List<StatementContext> ifBlock = new ArrayList<StatementContext>();
+		public List<StatementContext> afkBlock = new ArrayList<StatementContext>();
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
@@ -441,7 +444,8 @@ public class EBDAParser extends Parser {
 				{
 				{
 				setState(67);
-				statement();
+				((RushStmtContext)_localctx).statement = statement();
+				((RushStmtContext)_localctx).ifBlock.add(((RushStmtContext)_localctx).statement);
 				}
 				}
 				setState(72);
@@ -466,7 +470,8 @@ public class EBDAParser extends Parser {
 					{
 					{
 					setState(76);
-					statement();
+					((RushStmtContext)_localctx).statement = statement();
+					((RushStmtContext)_localctx).afkBlock.add(((RushStmtContext)_localctx).statement);
 					}
 					}
 					setState(81);

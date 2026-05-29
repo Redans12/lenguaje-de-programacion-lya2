@@ -1,0 +1,16 @@
+plant healthpoints tabla -> 7 :)
+plant healthpoints i -> 1 :)
+plant online corriendo -> online :)
+
+ñ ("Tabla del 7:") :)
+
+respawn (corriendo) {
+    plant healthpoints resultado -> tabla * i :)
+    ñ (resultado) :)
+    buffear i :)
+    corriendo -> i < 10 :)
+}
+
+resultado -> tabla * 10 :)
+ñ (resultado) :)
+win resultado :)

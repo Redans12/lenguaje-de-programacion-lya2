@@ -1,0 +1,16 @@
+plant healthpoints n -> 10 :)
+plant healthpoints suma -> 0 :)
+plant healthpoints i -> 1 :)
+plant online corriendo -> online :)
+
+ñ ("Sumatoria de 1 a 10:") :)
+
+respawn (corriendo) {
+    suma -> suma + i :)
+    buffear i :)
+    corriendo -> i < n :)
+}
+
+suma -> suma + n :)
+ñ (suma) :)
+win suma :)

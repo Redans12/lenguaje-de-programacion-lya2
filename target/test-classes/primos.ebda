@@ -1,0 +1,27 @@
+plant healthpoints n -> 20 :)
+plant healthpoints i -> 2 :)
+plant online buscando -> online :)
+
+ñ ("Numeros primos hasta 20:") :)
+
+respawn (buscando) {
+    plant healthpoints divisor -> 2 :)
+    plant healthpoints esPrimo -> 1 :)
+    plant online revisando -> online :)
+    respawn (revisando) {
+        plant healthpoints modulo -> i / divisor :)
+        modulo -> modulo * divisor :)
+        rush (modulo = i) {
+            esPrimo -> 0 :)
+        }
+        buffear divisor :)
+        revisando -> divisor < i :)
+    }
+    rush (esPrimo = 1) {
+        ñ (i) :)
+    }
+    buffear i :)
+    buscando -> i < n :)
+}
+
+win i :)

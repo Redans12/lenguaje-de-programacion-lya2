@@ -7,12 +7,12 @@ start: statement* EOF;
 
 // Una instrucción puede ser cualquiera de los siguientes tipos
 statement:
-	declaration // declaración de variable
-	| assignment // asignación de valor
-	| printStmt // impresión en pantalla
-	| rushStmt // estructura de decisión (if/else)
-	| respawnStmt // estructura de repetición (loop)
-	| winStmt ; // retorno de valor
+    declaration
+    | assignment
+    | printStmt
+    | rushStmt
+    | respawnStmt
+    | winStmt;
 
 // Declaración de variable: tipo nombre -> valor :) Ejemplo: plant healthpoints vida -> 100 :)
 declaration: 'plant' type IDENTIFIER '->' expression ':)';
@@ -29,9 +29,8 @@ printStmt: 'ñ' '(' expression ')' ':)';
 
 // Estructura de decisión con rama opcional Ejemplo: rush (vida > 0) { ... } afk { ... }
 rushStmt:
-	'rush' '(' expression ')' '{' statement* '}' (
-		'afk' '{' statement* '}'
-	)?;
+    'rush' '(' expression ')' '{' ifBlock+=statement* '}'
+    ('afk' '{' afkBlock+=statement* '}'  )?;
 
 // Estructura de repetición mientras la condición sea verdadera Ejemplo: respawn (vida > 0) { ... }
 respawnStmt: 'respawn' '(' expression ')' '{' statement* '}';
@@ -48,30 +47,21 @@ type:
 // Expresiones: operaciones aritméticas, comparaciones, valores y variables Las expresiones pueden
 // anidarse usando paréntesis
 expression:
-	expression ('+' | '-' | '*' | '/') expression // operaciones aritméticas
-	| expression ('=' | '<' | '>') expression // comparaciones
-	| '!' expression // negación lógica
-	| '(' expression ')' // agrupación
-	| IDENTIFIER // nombre de variable
-	| NUMBER // número entero
-	| STRING // cadena de texto
-	| 'online' // valor booleano verdadero
-	| 'offline' // valor booleano falso
-	| 'npc' ; // valor nulo
+    expression ('+' | '-' | '*' | '/') expression
+    | expression ('=' | '<' | '>') expression
+    | '!' expression
+    | '(' expression ')'
+    | IDENTIFIER
+    | NUMBER
+    | STRING
+    | 'online'
+    | 'offline'
+    | 'npc';
 
 // ==================== LEXER RULES ====================
 
-// Identificadores: nombres de variables, deben iniciar con letra o ñ
 IDENTIFIER: [a-zA-ZñÑ][a-zA-ZñÑ0-9_]*;
-
-// Números enteros
 NUMBER: [0-9]+;
-
-// Cadenas de texto entre comillas dobles
 STRING: '"' (~["\r\n])* '"';
-
-// Delimitador de instrucción: :)
 DELIM: ':)';
-
-// Espacios en blanco, tabulaciones y saltos de línea son ignorados
 WS: [ \t\r\n]+ -> skip;

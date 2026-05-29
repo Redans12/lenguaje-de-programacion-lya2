@@ -1,0 +1,21 @@
+plant healthpoints n -> 10 :)
+plant healthpoints a -> 0 :)
+plant healthpoints b -> 1 :)
+plant healthpoints i -> 0 :)
+plant healthpoints temp -> 0 :)
+plant online corriendo -> online :)
+
+ñ ("Serie Fibonacci de 10 terminos:") :)
+ñ (a) :)
+ñ (b) :)
+
+respawn (corriendo) {
+    temp -> a + b :)
+    ñ (temp) :)
+    a -> b :)
+    b -> temp :)
+    buffear i :)
+    corriendo -> i < n :)
+}
+
+win b :)
